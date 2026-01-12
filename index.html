@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>オンラインゲームでスキルなどの速度を上げる方法</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="site-wrapper">
+        <header class="site-header">
+            <span class="recommend-tag">■ おすすめ情報</span>
+            <span class="site-logo">@type Special</span>
+        </header>
+
+        <section class="hero-section">
+            <h1 class="main-copy">
+                うわっ…<span class="marker">私のマグ、</span><br>
+                <span class="marker">遅すぎ…？</span>
+            </h1>
+
+            <div class="main-visual">
+                <div class="image-container">
+                    <img src="image_af0608.png" alt="驚くキャラクター">
+                </div>
+
+                <div class="description-box">
+                    <p class="lead-text">
+                        無料5分で、<strong>適正マグ速度</strong>や<br>
+                        <strong>マビノギ基礎力</strong>が分かる<br>
+                        「マグ速度診断テスト」。
+                    </p>
+                    <p class="stats-text">
+                        受けた人は<span class="highlight-red">40万人</span>を突破！<br>
+                        結果もすぐ分かると大人気だ。
+                    </p>
+
+                    <div class="action-area">
+                        <div class="check-badge">CHECK!</div>
+                        <a href="#" class="cta-button">>> あなたの適正速度は？</a>
+                    </div>
+                </div>
+            </div>
+            <div class="disclaimer-box">
+                <p class="joke-end">冗談はここまでにしまして。</p>
+                <p>
+                    今回はオンラインゲームで<strong>スキルの反応速度を上げるPC設定</strong>を解説していきます。<br>
+                    これはあくまでPCの設定ですので、改造やチートには当たりませんが、全てのプレイヤーがこれを行うとDDoS攻撃のようなものになってしまい、最悪サーバーが逝くので<strong>広めるのは非推奨</strong>です。
+                </p>
+            </div>
+
+            <div class="tutorial-content">
+                <h2>解説：設定の手順</h2>
+                <p class="step-text">
+                    まず <strong>Windowsボタン + R</strong> を押して検索画面を出し、画像にあるような <span>regedit</span> と入力してOKを押してください。
+                </p>
+
+                <div class="tutorial-image-container">
+                    <img src="Screenshot 2026-01-12 174240.png" alt="レジストリエディタの起動画面" class="tutorial-img">
+                </div>
+            </div>
+            <div class="step-box">
+                <p class="step-description">
+                    OKを押すとこのようにたくさんの項目が出ると思いますが、無視して以下のパスまで進めてください。
+                </p>
+
+                <div class="path-display">
+                    <code>コンピューター\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\Interfaces</code>
+                </div>
+
+                <div class="tutorial-image-container">
+                    <img src="Screenshot 2026-01-12 174738.png" alt="レジストリエディタの階層" class="tutorial-img">
+                </div>
+            </div>
+
+            <div class="step-box">
+                <p class="step-description">
+                    そうしたら、その中にいろいろファイル（フォルダ）があると思いますが、<strong>IPが表示されていて、少し多めに項目があり、T1やT2など表示されているファイル</strong>を選んでください。
+                </p>
+
+                <div class="tutorial-image-container">
+                    <img src="Screenshot 2026-01-12 174932.png" alt="ターゲットのインターフェース選択" class="tutorial-img">
+                    <p class="img-caption">※画像のように右側の項目が多いものが正解です</p>
+                </div>
+            </div>
+            <div class="step-box">
+                <h2>手順1：TcpAckFrequency の作成</h2>
+                <p class="step-description">
+                    選んだそのファイル内で新規作成をしていきます。<br>
+                    右側の空白部分で<strong>右クリック ＞ 新規 ＞ DWORD (32ビット) 値</strong> を選び、名前を <span>TcpAckFrequency</span>
+                    としてください。<br>
+                    <small>※すでに存在する場合は作成不要です。</small>
+                </p>
+                <p class="step-description">
+                    作成したら、それをダブルクリックし、<strong>値を 1</strong> に書き換えてOKを押してください。
+                </p>
+                <div class="tutorial-image-container">
+                    <img src="Screenshot 2026-01-12 180259.png" alt="レジストリエディタの階層" class="tutorial-img">
+                </div>
+            </div>
+
+            <div class="step-box">
+                <h2>手順2：TCPNoDelay の作成</h2>
+                <p class="step-description">
+                    同じようにもう一つ作成します。<br>
+                    同じ場所で <strong>DWORD (32ビット) 値</strong> を作成し、名前を <span>TCPNoDelay</span> としてください。
+                </p>
+                <p class="step-description">
+                    作成したら、こちらもダブルクリックして<strong>値を 0</strong> にしてください。<br>
+                    <small>※これらはデフォルトでは存在しないため、ほぼすべての人が作成することになります。既にある場合は、現在の設定が限界です。</small>
+                </p>
+                <div class="tutorial-image-container">
+                    <img src="Screenshot 2026-01-12 180309.png" alt="レジストリエディタの階層" class="tutorial-img">
+                </div>
+            </div>
+
+            <div class="finish-section">
+                <div class="finish-card">
+                    <h3>お疲れ様でした。これで完成です！</h3>
+                    <p>設定を反映させるために、<strong>PCを再起動</strong>してください。</p>
+                    <p class="final-check">再起動後、ゲームにログインしてスキルの反応速度を確認してみてください。</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+</body>
+
+</html>
