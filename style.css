@@ -1,0 +1,236 @@
+/* --- 全体・リセット設定 --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ffffff;
+    font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+.site-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    border: 2px solid #333;
+    min-height: 100vh;
+}
+
+/* --- ヘッダー部分 --- */
+.site-header {
+    background-color: #000;
+    color: #fff;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.recommend-tag {
+    font-size: 14px;
+}
+
+.site-logo {
+    font-size: 24px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+/* --- 最初のセクション（うわっ…私の年収…） --- */
+.hero-section {
+    padding-bottom: 40px;
+}
+
+.main-copy {
+    padding: 40px 20px;
+    font-size: clamp(32px, 8vw, 70px);
+    font-weight: 900;
+    line-height: 1.3;
+    letter-spacing: -2px;
+}
+
+.marker {
+    background: linear-gradient(transparent 60%, #ffc0cb 60%);
+    padding: 0 10px;
+}
+
+.main-visual {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    gap: 30px;
+    align-items: center;
+}
+
+/* ★最初の画像：大きく表示 */
+.image-container {
+    flex: 1;
+    min-width: 300px;
+}
+
+.image-container img {
+    width: 100%;
+    /* 親要素(flex)いっぱいまで拡大 */
+    max-width: 800px;
+    height: auto;
+    border: 4px solid #000;
+    box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+.description-box {
+    flex: 1;
+    min-width: 300px;
+}
+
+.highlight-red {
+    color: #ff0000;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.check-badge {
+    background-color: #ffff00;
+    display: inline-block;
+    padding: 5px 15px;
+    font-weight: bold;
+    border: 2px solid #000;
+    margin-bottom: 15px;
+}
+
+.cta-button {
+    display: block;
+    font-size: clamp(18px, 4vw, 28px);
+    color: #0000ee;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* --- 解説・レジストリ操作セクション --- */
+.explanation-section,
+.registry-guide {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    border-top: 5px solid #000;
+}
+
+.disclaimer-box {
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border: 2px solid #ff0000;
+    box-shadow: 5px 5px 0px #ff0000;
+}
+
+.path-display {
+    background-color: #333;
+    color: #00ff00;
+    padding: 15px;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    word-break: break-all;
+    margin: 20px 0;
+    border: 1px solid #555;
+}
+
+/* ★解説用の画像：小さく中央に表示 */
+.tutorial-image-container {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.tutorial-img {
+    width: 60%;
+    /* 画面の6割のサイズに縮小 */
+    max-width: 500px;
+    /* PCでも最大500pxに制限 */
+    height: auto;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.tutorial-img:hover {
+    transform: scale(1.03);
+    /* 少しだけ浮かせる */
+    cursor: zoom-in;
+}
+
+.img-caption {
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* --- レスポンシブ設定 --- */
+@media (max-width: 600px) {
+    .main-copy {
+        text-align: center;
+    }
+
+    .main-visual {
+        flex-direction: column;
+    }
+
+    .tutorial-img {
+        width: 95%;
+    }
+
+    /* スマホでは見やすさ優先で拡大 */
+}
+
+/* --- 値の編集セクション固有のスタイル --- */
+.value-edit-guide {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+.value-edit-guide h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+    border-bottom: 2px solid #333;
+    display: inline-block;
+}
+
+/* 完了メッセージの装飾 */
+.finish-section {
+    margin-top: 80px;
+    padding: 40px;
+    background-color: #fff9c4;
+    /* 薄い黄色 */
+    border-radius: 10px;
+    border: 3px dashed #fbc02d;
+    text-align: center;
+}
+
+.finish-card h3 {
+    font-size: 26px;
+    color: #f57f17;
+    margin-bottom: 20px;
+}
+
+.finish-card p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.final-check {
+    font-weight: bold;
+    color: #d32f2f;
+    font-size: 20px;
+}
+
+/* 小さい注釈 */
+small {
+    display: block;
+    font-size: 13px;
+    color: #777;
+    margin-top: 5px;
+}
